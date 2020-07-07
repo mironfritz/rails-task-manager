@@ -1,0 +1,12 @@
+<h1><%= @task.title %></h1>
+<p><%= @task.details %></p>
+<div>
+  <%= form_for(@task) do |f| %>
+    <%= f.check_box :completed%>
+  <% end %>
+  This task is completed
+</div>
+<br>
+<div><%= link_to 'edit task', edit_task_path(@task)%></div>
+<br>
+<%= link_to '<i class="fas fa-trash"></i> Delete this Task'.html_safe, task_path(@task), method: :delete %>

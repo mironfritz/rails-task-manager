@@ -1,0 +1,15 @@
+<h1>My tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= form_for(task) do |f| %>
+        <%= f.check_box :completed%>
+      <% end %>
+      <%= link_to "#{task.title}", task_path(task.id)%>
+      <%= link_to '<i class="fas fa-trash"></i>'.html_safe, task_path(task.id), method: :delete %>
+    </li>
+    <br>
+    <br>
+    <% end %>
+</ul>
+<%= link_to "Create an new taks",  new_task_path(@task)%>
